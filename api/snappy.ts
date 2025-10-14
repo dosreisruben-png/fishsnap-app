@@ -15,7 +15,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        // Use GPT‑3.5 Turbo instead of GPT‑4o Mini
+        model: 'gpt-3.5-turbo',
         temperature: 0.2,
         messages: [
           {
@@ -36,3 +37,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: e.message });
   }
 }
+
