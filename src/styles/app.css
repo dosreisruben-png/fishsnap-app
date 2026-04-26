@@ -1,21 +1,23 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --bg: #000000;
-  --surface: #0e0e0e;
-  --surface-2: #161616;
-  --surface-3: #1c1c1c;
-  --border: #262626;
-  --border-strong: #3a3a3a;
-  --text: #ffffff;
-  --text-muted: #9a9a9a;
-  --text-dim: #6b6b6b;
-  --accent: #ff5b2e;
-  --accent-strong: #ff7048;
-  --accent-soft: rgba(255, 91, 46, 0.12);
-  --danger: #e5484d;
-  --danger-soft: rgba(229, 72, 77, 0.12);
-  --success: #34c759;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f7f7f7;
+  --surface-3: #efefef;
+  --border: #e6e6e6;
+  --border-strong: #cfcfcf;
+  --text: #0a0a0a;
+  --text-muted: #5c5c5c;
+  --text-dim: #8a8a8a;
+  --accent: #dc2626;
+  --accent-strong: #b91c1c;
+  --accent-soft: rgba(220, 38, 38, 0.08);
+  --danger: #dc2626;
+  --danger-soft: rgba(220, 38, 38, 0.08);
+  --success: #16a34a;
+  --shadow-sm: 0 1px 2px rgba(10, 10, 10, 0.04);
+  --shadow-md: 0 4px 16px rgba(10, 10, 10, 0.06);
 }
 
 * {
@@ -60,7 +62,7 @@ input, textarea {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: rgba(0, 0, 0, 0.94);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   z-index: 10;
 }
@@ -89,6 +91,7 @@ input, textarea {
   font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: -0.025em;
+  color: var(--text);
 }
 
 .brand-tag {
@@ -100,12 +103,12 @@ input, textarea {
 }
 
 .day-pill {
-  background: transparent;
+  background: var(--surface-2);
   color: var(--text);
   padding: 8px 14px;
   border-radius: 999px;
   font-size: 0.82rem;
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
   font-weight: 500;
 }
 
@@ -131,13 +134,15 @@ input, textarea {
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 22px;
+  box-shadow: var(--shadow-sm);
 }
 
 .card h3 {
   margin: 0 0 6px;
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text);
 }
 
 .card p {
@@ -157,22 +162,24 @@ input, textarea {
   font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .accent-card {
   border-color: var(--accent);
-  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 100%);
+  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 60%);
 }
 
 .danger-card {
-  border-color: rgba(229, 72, 77, 0.4);
-  background: linear-gradient(180deg, var(--danger-soft) 0%, var(--surface) 100%);
+  border-color: rgba(220, 38, 38, 0.3);
+  background: linear-gradient(180deg, var(--danger-soft) 0%, var(--surface) 60%);
 }
 
 /* Hero */
 .hero-card {
-  background: linear-gradient(135deg, #161616 0%, #0a0a0a 100%);
-  border-color: var(--border-strong);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
 }
 
 .hero-row {
@@ -183,7 +190,7 @@ input, textarea {
 }
 
 .score {
-  font-size: 3.4rem;
+  font-size: 3.6rem;
   font-weight: 900;
   letter-spacing: -0.05em;
   color: var(--text);
@@ -193,7 +200,7 @@ input, textarea {
 .score-suffix {
   color: var(--text-dim);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 4px;
 }
 
@@ -227,13 +234,14 @@ input, textarea {
   font-size: 0.95rem;
   margin-top: 8px;
   outline: none;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .input:focus,
 .textarea:focus {
   border-color: var(--accent);
-  background: var(--surface-3);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .input::placeholder,
@@ -275,7 +283,7 @@ input, textarea {
   height: 24px;
   border-radius: 7px;
   border: 1.5px solid var(--border-strong);
-  background: var(--surface-2);
+  background: var(--surface);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,6 +306,7 @@ input, textarea {
 
 .check-label {
   font-size: 0.95rem;
+  color: var(--text);
 }
 
 /* Buttons */
@@ -328,13 +337,14 @@ input, textarea {
 }
 
 .btn.ghost {
-  background: transparent;
+  background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border-strong);
 }
 
 .btn.ghost:hover {
   border-color: var(--text-muted);
+  background: var(--surface-2);
 }
 
 .btn.danger {
@@ -343,7 +353,7 @@ input, textarea {
 }
 
 .btn.danger:hover {
-  opacity: 0.9;
+  background: var(--accent-strong);
 }
 
 /* Tab bar */
@@ -353,7 +363,7 @@ input, textarea {
   left: 0;
   right: 0;
   display: flex;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   border-top: 1px solid var(--border);
   padding: 8px;
@@ -384,8 +394,8 @@ input, textarea {
 }
 
 .tab-active {
-  color: var(--text);
-  background: var(--surface-2);
+  color: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* Slipping FAB */
@@ -401,20 +411,20 @@ input, textarea {
   font-size: 0.82rem;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(229, 72, 77, 0.35);
+  box-shadow: 0 8px 22px rgba(220, 38, 38, 0.28);
   z-index: 15;
   letter-spacing: -0.01em;
 }
 
 .slipping-fab:hover {
-  opacity: 0.95;
+  background: var(--accent-strong);
 }
 
 /* Modal */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
@@ -425,11 +435,12 @@ input, textarea {
 
 .modal {
   background: var(--surface);
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px;
   max-width: 460px;
   width: 100%;
+  box-shadow: 0 20px 60px rgba(10, 10, 10, 0.18);
 }
 
 .modal h3 {
@@ -437,6 +448,7 @@ input, textarea {
   font-size: 1.25rem;
   letter-spacing: -0.025em;
   font-weight: 800;
+  color: var(--text);
 }
 
 .rescue-list {
@@ -540,6 +552,7 @@ input, textarea {
   margin: 8px 0 0;
   padding-left: 20px;
   line-height: 1.85;
+  color: var(--text);
 }
 
 .kicker {
@@ -571,7 +584,7 @@ input, textarea {
     padding: 18px 18px 8px;
   }
   .score {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
   }
   .headline {
     font-size: 1.3rem;
